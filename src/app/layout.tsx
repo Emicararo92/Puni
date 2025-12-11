@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import NavBar from "../components/navBar/navBar";
+import Footer from "../components/footer/footer";
+import WhatsAppFloatingButton from "../utils/wapp/wapp";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,8 +34,9 @@ export default function RootLayout({
         {/* Navbar global */}
         <NavBar />
 
-        {/* Contenido de cada página */}
+        <WhatsAppFloatingButton />
         <main className="app-main">{children}</main>
+        <Footer />
       </body>
     </html>
   );

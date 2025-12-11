@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { FaWhatsapp, FaChevronDown } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import styles from "../../styles/navBar.module.css";
 
@@ -11,14 +11,14 @@ export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  /* Detectar scroll */
+  /* Scroll */
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Bloquear scroll body cuando menú mobile está abierto */
+  /* Lock scroll body en mobile */
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
     return () => {
@@ -27,12 +27,12 @@ export default function NavBar() {
   }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
     setIsDropdownOpen(false);
   };
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownOpen((prev) => !prev);
   };
 
   const closeAllMenus = () => {
@@ -45,23 +45,19 @@ export default function NavBar() {
       <div className={styles.navbar__container}>
         {/* LOGO */}
         <div className={styles.navbar__brand}>
-          <Link
-            href="/"
-            onClick={closeAllMenus}
-            className={styles.navbar__logo}
-          >
+          <Link href="/" onClick={closeAllMenus}>
             <Image
               src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765407558/Screenshot_2025-12-10_160553-removebg-preview_kyaua9.png"
               alt="Puni"
               width={140}
               height={40}
               priority
-              className={styles.navbar__logo_image}
+              className={styles.navbar__logo}
             />
           </Link>
         </div>
 
-        {/* Toggle mobile */}
+        {/* TOGGLE MOBILE */}
         <button
           className={`${styles.navbar__mobile_toggle} ${
             isMobileMenuOpen ? styles.active : ""
@@ -78,9 +74,27 @@ export default function NavBar() {
         {/* NAV DESKTOP */}
         <nav className={styles.navbar__nav}>
           <ul className={styles.navbar__menu}>
-            <li className={styles.navbar__item}>
+            <li>
               <Link href="/" className={styles.navbar__link}>
                 Inicio
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/que-es-puni" className={styles.navbar__link}>
+                ¿Qué es Puni?
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/como-funciona" className={styles.navbar__link}>
+                ¿Cómo funciona?
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/porque-elegirnos" className={styles.navbar__link}>
+                Por qué elegirnos
               </Link>
             </li>
 
@@ -122,32 +136,13 @@ export default function NavBar() {
               )}
             </li>
 
-            <li className={styles.navbar__item}>
-              <Link href="/porque-elegirnos" className={styles.navbar__link}>
-                Por qué elegirnos
-              </Link>
-            </li>
-
-            <li className={styles.navbar__item}>
+            <li>
               <Link href="/contacto" className={styles.navbar__link}>
                 Contacto
               </Link>
             </li>
           </ul>
         </nav>
-
-        {/* WhatsApp Desktop */}
-        <div className={styles.navbar__cta}>
-          <a
-            href="https://wa.me/5490000000000"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.navbar__whatsapp_button}
-          >
-            <FaWhatsapp />
-            <span>WhatsApp</span>
-          </a>
-        </div>
 
         {/* OVERLAY MOBILE */}
         {isMobileMenuOpen && (
@@ -164,6 +159,24 @@ export default function NavBar() {
               <li>
                 <Link href="/" onClick={closeAllMenus}>
                   Inicio
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/que-es-puni" onClick={closeAllMenus}>
+                  ¿Qué es Puni?
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/como-funciona" onClick={closeAllMenus}>
+                  ¿Cómo funciona?
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/porque-elegirnos" onClick={closeAllMenus}>
+                  Por qué elegirnos
                 </Link>
               </li>
 
@@ -194,27 +207,11 @@ export default function NavBar() {
               </li>
 
               <li>
-                <Link href="/porque-elegirnos" onClick={closeAllMenus}>
-                  Por qué elegirnos
-                </Link>
-              </li>
-
-              <li>
                 <Link href="/contacto" onClick={closeAllMenus}>
                   Contacto
                 </Link>
               </li>
             </ul>
-
-            <div className={styles.navbar__mobile_cta}>
-              <a
-                href="https://wa.me/5490000000000"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaWhatsapp /> WhatsApp
-              </a>
-            </div>
           </div>
         )}
       </div>
