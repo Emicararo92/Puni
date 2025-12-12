@@ -1,4 +1,4 @@
-/* porQue.module.css - VERSIÓN MODERNA */
+/* porQue.module.css - VERSIÓN MODERNA CON LOGOS ARREGLADOS */
 
 .section {
   --color-primary: #f2b4cc;
@@ -8,7 +8,7 @@
   --color-gray-light: #f8f9fa;
   --color-gray-dark: #231f20;
 
-  padding: 2rem 2rem;
+  padding: 4rem 2rem;
   background: #eaeaea;
   position: relative;
   overflow: hidden;
@@ -35,18 +35,17 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: stretch; /* Cambiado a stretch para igualar altura */
+  gap: 4rem;
+  align-items: stretch;
   position: relative;
   z-index: 1;
-  height: 100%;
 }
 
 /* Columnas con misma altura */
 .columna {
   display: flex;
   flex-direction: column;
-  height: 100%; /* Asegura que ambas columnas ocupen toda la altura */
+  height: 100%;
 }
 
 /* Columna 1: Por qué elegirnos */
@@ -58,8 +57,7 @@
     0 0 0 1px rgba(242, 180, 204, 0.1);
   border: 1px solid rgba(204, 164, 180, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  flex: 1; /* Ocupa todo el espacio disponible */
-  min-height: 100%; /* Mínimo 100% de altura */
+  flex: 1;
 }
 
 .columna:nth-child(1):hover {
@@ -164,9 +162,8 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  margin-top: auto; /* Empuja la imagen hacia abajo para alinear con contenido */
+  margin-top: auto;
   transition: all 0.4s ease;
-  flex-shrink: 0; /* Evita que la imagen se encoja */
 }
 
 .imageWrapper::before {
@@ -203,7 +200,7 @@
   transform: scale(1.05);
 }
 
-/* Columna 2: Partners */
+/* Columna 2: Partners - LOGOS COMPLETAMENTE ARREGLADOS */
 .columna:nth-child(2) {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
@@ -213,8 +210,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 10px 40px rgba(30, 55, 100, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  flex: 1; /* Ocupa todo el espacio disponible */
-  min-height: 100%; /* Mínimo 100% de altura */
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -252,15 +248,16 @@
   line-height: 1.6;
 }
 
-/* Grid de logos */
+/* Grid de logos - ARREGLADO DEFINITIVO */
 .logos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 2.5rem;
-  flex: 1; /* Los logos ocupan el espacio disponible */
+  flex: 1;
 }
 
+/* CONTENEDOR DE LOGO - ESTILOS PRINCIPALES ARREGLADOS */
 .logoCard {
   display: flex;
   align-items: center;
@@ -272,34 +269,53 @@
   border: 1px solid rgba(242, 180, 204, 0.2);
   position: relative;
   overflow: hidden;
-  height: 100%; /* Cada card ocupa toda la altura disponible */
-  min-height: 120px; /* Altura mínima consistente */
+  /* ALTURA FIJA Y CONSISTENTE */
+  height: 140px; /* FIJO */
+  min-height: 140px; /* FIJO */
+  max-height: 140px; /* FIJO */
+  /* ANCHO FIJO */
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
 }
 
-.logoCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(242, 180, 204, 0.05),
-    rgba(30, 55, 100, 0.03)
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* CONTENEDOR DE IMAGEN DENTRO DEL LOGOCARD */
+.logoImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+/* IMAGEN DENTRO DEL CONTENEDOR - ESTILOS ARREGLADOS */
+.logoImageContainer img,
+.logoImageContainer .logoImage {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 80px !important; /* LIMITE DE ALTURA */
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Para imágenes de Next.js Image */
+:global(.logo-image) {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 80px !important;
+  object-fit: contain !important;
+  object-position: center !important;
 }
 
 .logoCard:hover {
   transform: translateY(-6px);
   box-shadow: 0 15px 40px rgba(242, 180, 204, 0.2),
     0 0 0 1px rgba(204, 164, 180, 0.3);
-}
-
-.logoCard:hover::before {
-  opacity: 1;
 }
 
 /* Efecto de brillo en hover */
@@ -333,8 +349,7 @@
   border-radius: 16px;
   padding: 1.5rem;
   border: 1px solid rgba(242, 180, 204, 0.15);
-  margin-top: auto; /* Empuja hacia abajo para alinearse */
-  flex-shrink: 0; /* Evita que se encoja */
+  margin-top: auto;
 }
 
 .partnersFooterText {
@@ -351,14 +366,12 @@
   .container {
     grid-template-columns: 1fr;
     gap: 3rem;
-    align-items: stretch;
   }
 
   .columna:nth-child(1),
   .columna:nth-child(2) {
     max-width: 800px;
     margin: 0 auto;
-    min-height: auto; /* Altura automática en responsive */
   }
 
   .title {
@@ -369,15 +382,21 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* En móviles, el contenedor ya no fuerza misma altura */
-  .container {
-    height: auto;
+  .logoCard {
+    height: 130px !important;
+    min-height: 130px !important;
+    max-height: 130px !important;
+  }
+
+  .logoImageContainer img,
+  .logoImageContainer .logoImage {
+    max-height: 70px !important;
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.5rem;
   }
 
   .columna:nth-child(1),
@@ -399,8 +418,15 @@
   }
 
   .logoCard {
-    padding: 1rem;
-    min-height: 100px;
+    height: 120px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    padding: 3rem;
+  }
+
+  .logoImageContainer img,
+  .logoImageContainer .logoImage {
+    max-height: 40px !important;
   }
 
   .statsContainer {
@@ -410,7 +436,7 @@
 
 @media (max-width: 480px) {
   .section {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .title {
@@ -423,11 +449,19 @@
 
   .logos {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .logoCard {
+    height: 110px !important;
+    min-height: 110px !important;
+    max-height: 110px !important;
     padding: 1.25rem;
-    min-height: 90px;
+  }
+
+  .logoImageContainer img,
+  .logoImageContainer .logoImage {
+    max-height: 50px !important;
   }
 
   .partnersFooter {
@@ -461,7 +495,7 @@
 .infoButton {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.5rem 1.25rem; /* tamaño compacto */
+  padding: 0.5rem 1.25rem;
   background: var(--color-primary-dark);
   color: var(--color-white);
   font-family: "Montserrat", sans-serif;
@@ -469,7 +503,7 @@
   font-size: 0.9rem;
   border-radius: 10px;
   text-decoration: none;
-  text-align: center; /* centra el texto */
+  text-align: center;
   transition: all 0.3s ease;
 }
 

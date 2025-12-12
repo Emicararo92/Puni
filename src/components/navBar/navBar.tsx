@@ -118,17 +118,17 @@ export default function NavBar() {
               {isDropdownOpen && (
                 <ul className={styles.navbar__dropdown}>
                   <li>
-                    <Link href="/repartidores" onClick={closeAllMenus}>
+                    <Link href="/forms/repartidores" onClick={closeAllMenus}>
                       Quiero ser repartidor
                     </Link>
                   </li>
                   <li>
-                    <Link href="/envios" onClick={closeAllMenus}>
+                    <Link href="/forms/envios" onClick={closeAllMenus}>
                       Quiero envíos
                     </Link>
                   </li>
                   <li>
-                    <Link href="/colaborar" onClick={closeAllMenus}>
+                    <Link href="/forms/colaborar" onClick={closeAllMenus}>
                       Quiero colaborar con Puni
                     </Link>
                   </li>
@@ -188,17 +188,17 @@ export default function NavBar() {
                 {isDropdownOpen && (
                   <ul className={styles.navbar__mobile_dropdown}>
                     <li>
-                      <Link href="/repartidores" onClick={closeAllMenus}>
+                      <Link href="/forms/repartidores" onClick={closeAllMenus}>
                         Quiero ser repartidor
                       </Link>
                     </li>
                     <li>
-                      <Link href="/envios" onClick={closeAllMenus}>
+                      <Link href="/forms/envios" onClick={closeAllMenus}>
                         Quiero envíos
                       </Link>
                     </li>
                     <li>
-                      <Link href="/colaborar" onClick={closeAllMenus}>
+                      <Link href="/forms/colaborar" onClick={closeAllMenus}>
                         Quiero colaborar con Puni
                       </Link>
                     </li>
