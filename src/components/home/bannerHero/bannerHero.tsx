@@ -25,7 +25,7 @@ export default function HeroCarousel() {
         <SwiperSlide>
           <div className={styles.hero__slide}>
             <Image
-              src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765410222/Crea_un_banner_hero_para_un_sitio_web_de_cadeter%C3%ADa_llamado_Puni_._El_banner_debe_incluir___Una_moto_de_reparto_moderna_puede_ser_el%C3%A9ctrica_o_estilo_scooter_en_perspectiva_frontal_o_lateral.__Tres_variantes_de_banners_cada_uno_con_daiglx.jpg"
+              src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765501949/Create_a_horizontal_banner._The_left_25_of_the_image_should_be_mostly_white_leaving_space_for_text_or_a_logo._Focus_the_scene_on_the_right_side._Show_a_delivery_rider_on_a_motorcycle_riding_through_an_urban_stree_j2vfpp.jpg"
               alt="Repartidor Puni"
               fill
               className={styles.hero__image}

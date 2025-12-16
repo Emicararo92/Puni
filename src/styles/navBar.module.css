@@ -1,4 +1,4 @@
-/* navBar.module.css - VERSIÓN CON EFECTO SCROLL */
+/* navBar.module.css - VERSIÓN CON GRADIENTE DECORATIVO */
 
 .navbar {
   --color-primary: rgba(242, 180, 204, 0.305);
@@ -16,10 +16,10 @@
   color: var(--color-primary-dark); /* Texto azul por defecto */
 
   position: fixed;
-  top: 0;
+  top: 40px; /* Altura de la topbar */
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 999; /* Un poco menor que la topbar */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   height: 80px;
   margin: 0;
@@ -274,7 +274,7 @@
 /* MOBILE OVERLAY */
 .navbar__mobile_overlay {
   position: fixed;
-  top: 0;
+  top: 40px; /* Empieza después de la topbar */
   left: 0;
   right: 0;
   bottom: 0;
@@ -288,7 +288,7 @@
 /* MOBILE MENU */
 .navbar__mobile_menu {
   position: fixed;
-  top: 80px;
+  top: 120px; /* 40px (topbar) + 80px (navbar) */
   left: 0;
   right: 0;
   bottom: 0;
@@ -426,6 +426,7 @@
   .navbar {
     height: 70px;
     padding: 0 1rem;
+    top: 40px; /* Mantener altura de topbar */
   }
 
   .navbar__container {
@@ -442,7 +443,7 @@
   }
 
   .navbar__mobile_menu {
-    top: 70px;
+    top: 110px; /* 40px (topbar) + 70px (navbar mobile) */
     padding: 1.5rem;
   }
 
@@ -497,4 +498,160 @@
 
 .navbar__mobile_menu::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
+}
+
+/* TOPBAR - FIXED */
+.topbar {
+  background: #1b365d;
+  color: white;
+  font-size: 0.85rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Mayor que navbar */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.topbar__container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  align-items: center;
+  height: 100%;
+}
+
+.topbar__link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+}
+
+.topbar__link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Asegurar que el body tenga padding-top para evitar que el contenido quede debajo */
+body {
+  padding-top: 120px; /* 40px (topbar) + 80px (navbar) */
+}
+
+/* RESPONSIVE PARA TOPBAR */
+@media (max-width: 768px) {
+  .topbar {
+    height: 40px;
+    font-size: 0.8rem;
+  }
+
+  .topbar__container {
+    padding: 0 1rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  body {
+    padding-top: 110px; /* 40px (topbar) + 70px (navbar mobile) */
+  }
+
+  .navbar__mobile_overlay {
+    top: 40px; /* Mantener después de topbar */
+  }
+}
+
+/* BARRA DE GRADIENTE DECORATIVA */
+.gradientStrip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 1001;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gradientStrip__segment {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(242, 180, 204, 0.9) 0%,
+    rgba(255, 255, 255, 0.8) 25%,
+    rgba(255, 255, 255, 0.8) 75%,
+    rgba(242, 180, 204, 0.9) 100%
+  );
+  animation: gradientFlow 3s ease-in-out infinite alternate;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estado scrolled: gradiente azul a blanco */
+.gradientStrip.scrolled .gradientStrip__segment {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 55, 100, 0.9) 0%,
+    rgba(255, 255, 255, 0.8) 25%,
+    rgba(255, 255, 255, 0.8) 75%,
+    rgba(30, 55, 100, 0.9) 100%
+  );
+  animation: gradientFlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+    background-size: 200% 100%;
+  }
+  100% {
+    background-position: 100% 50%;
+    background-size: 200% 100%;
+  }
+}
+
+/* Efecto de brillo sutil */
+.gradientStrip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shine 4s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* En mobile, hacer la barra un poco más delgada */
+@media (max-width: 768px) {
+  .gradientStrip {
+    height: 3px;
+  }
 }
