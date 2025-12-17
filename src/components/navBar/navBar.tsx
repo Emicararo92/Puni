@@ -10,11 +10,25 @@ export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isTopBarVisible, setIsTopBarVisible] = useState(true); // ESTADO PARA TOPBAR
 
-  /* Scroll */
+  /* Scroll - Controlar navbar Y topbar */
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      const scrolled = window.scrollY > 50;
+      setIsScrolled(scrolled);
+
+      // CONTROLAR TOPBAR (desaparece después de 100px)
+      const topbarVisible = window.scrollY <= 100;
+      setIsTopBarVisible(topbarVisible);
+
+      // Coordinar padding del body
+      document.body.style.paddingTop = window.scrollY > 100 ? "80px" : "120px";
+    };
+
     window.addEventListener("scroll", onScroll);
+    onScroll(); // Inicializar
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -42,32 +56,44 @@ export default function NavBar() {
 
   return (
     <>
-      {/* TOP BAR */}
-      <div className={styles.topbar}>
+      {/* TOP BAR - CON CLASES VISIBLE/HIDDEN */}
+      <div
+        className={`${styles.topbar} ${
+          isTopBarVisible ? styles.visible : styles.hidden
+        }`}
+      >
         <div className={styles.topbar__container}>
-          <a
-            href="https://www.instagram.com/puni.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.topbar__link}
-          >
-            <FaInstagram /> Instagram
-          </a>
+          <div className={styles.topbar__socials}>
+            <a
+              href="https://www.instagram.com/puni.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.topbar__link}
+            >
+              <FaInstagram />
+            </a>
 
-          <a
-            href="https://wa.me/5493515174441"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.topbar__link}
-          >
-            <FaWhatsapp /> WhatsApp
-          </a>
+            <a
+              href="https://wa.me/5493515174441"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.topbar__link}
+            >
+              <FaWhatsapp />
+            </a>
+          </div>
+
+          <Link href="/forms/colaborar" className={styles.topbar__cta}>
+            Sumate a Puni
+          </Link>
         </div>
       </div>
 
-      {/* NAVBAR */}
+      {/* NAVBAR - CON CLASE topbarHidden CUANDO TOPBAR NO ES VISIBLE */}
       <header
-        className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}
+        className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${
+          !isTopBarVisible ? styles.topbarHidden : ""
+        }`}
       >
         <div className={styles.navbar__container}>
           {/* LOGO */}

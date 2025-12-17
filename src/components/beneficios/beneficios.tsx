@@ -7,64 +7,76 @@ export default function BeneficiosSection() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
+        {/* HEADER */}
         <div className={styles.header}>
           <h2 className={styles.mainTitle}>
-            El <span className={styles.highlight}>45%</span> que está frenando
-            el crecimiento de tu negocio
+            ¿Tu negocio trabaja para vos
+            <br />o para las plataformas?
           </h2>
+
           <p className={styles.subHeader}>
-            Descubre cómo recuperar el control de tus ganancias
+            Redefiní tu estrategia, recuperá hasta el{" "}
+            <span className={styles.highlight}>45%</span> perdido y hacé crecer
+            tus márgenes con Puni.
           </p>
         </div>
 
         <div className={styles.benefitsContent}>
-          {/* Problema */}
+          {/* PROBLEMA */}
           <div className={styles.benefitItem}>
             <div className={styles.benefitHeader}>
               <h3 className={styles.benefitTitle}>
-                El modelo insostenible de las Apps tradicionales
+                ❌ El modelo insostenible de las apps tradicionales
               </h3>
             </div>
 
             <div className={styles.benefitText}>
-              <span className={styles.textHighlight}>Altas comisiones:</span>{" "}
-              Las apps líderes cobran comisiones de hasta el 45% del producto.
-              Esto reduce drásticamente tu margen de ganancia, obligándote a
-              sentir que trabajas para la app y no al revés.
+              Las plataformas de delivery actuales se quedan con hasta el{" "}
+              <span className={styles.textHighlight}>45% de cada venta</span>,
+              reduciendo tus márgenes y haciéndote depender cada vez más.
+            </div>
+
+            <div className={styles.benefitText}>
+              El resultado es claro: ganás menos, perdés control y terminás
+              trabajando para la app, no para tu negocio.
             </div>
           </div>
 
           <div className={styles.divider}></div>
 
-          {/* Solución */}
+          {/* SOLUCIÓN */}
           <div className={styles.benefitItem}>
             <div className={styles.benefitHeader}>
               <h3 className={styles.benefitTitle}>
-                El Modelo Puni: Logística Justa y 100% de tu Margen
+                ✅ El Modelo Puni: Logística justa, márgenes íntegros
               </h3>
             </div>
 
             <div className={styles.benefitText}>
               <span className={styles.textHighlight}>
-                SIN COMISIONES SOBRE TUS PRODUCTOS.
+                Sin comisiones sobre tus productos.
               </span>{" "}
-              Creamos una plataforma tecnológica que conecta tu comercio con una
-              flota de Repartidores On-Demand, pero con una diferencia radical:
-              SIN COMISIONES SOBRE TUS PRODUCTOS.
+              Sin sorpresas. Sin intermediarios abusivos.
+            </div>
+
+            <div className={styles.benefitText}>
+              Puni conecta tu comercio con una red de repartidores on-demand
+              mediante una plataforma tecnológica propia, eficiente y local.
             </div>
 
             <div className={styles.benefitText}>
               <span className={styles.textHighlight}>
-                ¡Tu GANANCIA se queda en tu NEGOCIO!
+                El 100% de tu margen se queda en tu negocio.
               </span>{" "}
-              Te quedas con el 100% del margen de tus productos.
+              Invertí en crecer, no en pagar comisiones ajenas.
             </div>
           </div>
         </div>
 
+        {/* CTA */}
         <div className={styles.buttonContainer}>
-          <Link href="/mas-informacion" className={styles.infoButton}>
-            Quiero más información
+          <Link href="/forms/envios" className={styles.infoButton}>
+            Quiero recuperar mi margen
           </Link>
         </div>
       </div>
