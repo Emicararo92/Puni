@@ -10,29 +10,23 @@ export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isTopBarVisible, setIsTopBarVisible] = useState(true); // ESTADO PARA TOPBAR
+  const [isTopBarVisible, setIsTopBarVisible] = useState(true);
 
-  /* Scroll - Controlar navbar Y topbar */
+  /* Scroll */
   useEffect(() => {
     const onScroll = () => {
-      const scrolled = window.scrollY > 50;
-      setIsScrolled(scrolled);
-
-      // CONTROLAR TOPBAR (desaparece después de 100px)
-      const topbarVisible = window.scrollY <= 100;
-      setIsTopBarVisible(topbarVisible);
-
-      // Coordinar padding del body
+      setIsScrolled(window.scrollY > 50);
+      setIsTopBarVisible(window.scrollY <= 100);
       document.body.style.paddingTop = window.scrollY > 100 ? "80px" : "120px";
     };
 
     window.addEventListener("scroll", onScroll);
-    onScroll(); // Inicializar
+    onScroll();
 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Lock scroll body en mobile */
+  /* Lock scroll mobile */
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
     return () => {
@@ -56,7 +50,7 @@ export default function NavBar() {
 
   return (
     <>
-      {/* TOP BAR - CON CLASES VISIBLE/HIDDEN */}
+      {/* TOPBAR */}
       <div
         className={`${styles.topbar} ${
           isTopBarVisible ? styles.visible : styles.hidden
@@ -89,7 +83,7 @@ export default function NavBar() {
         </div>
       </div>
 
-      {/* NAVBAR - CON CLASE topbarHidden CUANDO TOPBAR NO ES VISIBLE */}
+      {/* NAVBAR */}
       <header
         className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${
           !isTopBarVisible ? styles.topbarHidden : ""
@@ -151,7 +145,7 @@ export default function NavBar() {
                 </Link>
               </li>
 
-              {/* REGISTROS */}
+              {/* DROPDOWN DESKTOP */}
               <li
                 className={`${styles.navbar__item} ${styles["navbar__item--has-dropdown"]}`}
               >
@@ -197,7 +191,7 @@ export default function NavBar() {
             </ul>
           </nav>
 
-          {/* OVERLAY MOBILE */}
+          {/* OVERLAY */}
           {isMobileMenuOpen && (
             <div
               className={styles.navbar__mobile_overlay}
@@ -216,19 +210,19 @@ export default function NavBar() {
                 </li>
 
                 <li>
-                  <Link href="/que-es-puni" onClick={closeAllMenus}>
+                  <Link href="/queEsPuni" onClick={closeAllMenus}>
                     ¿Qué es Puni?
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/como-funciona" onClick={closeAllMenus}>
+                  <Link href="/comoFunciona" onClick={closeAllMenus}>
                     ¿Cómo funciona?
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/porque-elegirnos" onClick={closeAllMenus}>
+                  <Link href="/porQueElegirnos" onClick={closeAllMenus}>
                     Por qué elegirnos
                   </Link>
                 </li>
@@ -272,7 +266,7 @@ export default function NavBar() {
           )}
         </div>
 
-        {/* BARRA DE GRADIENTE DECORATIVA */}
+        {/* GRADIENT STRIP */}
         <div
           className={`${styles.gradientStrip} ${
             isScrolled ? styles.scrolled : ""
