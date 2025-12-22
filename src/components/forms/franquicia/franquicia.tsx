@@ -1,294 +1,280 @@
 "use client";
 
-import { useState } from "react";
-import styles from "../../../styles/forms/franquicia.module.css";
+import Link from "next/link";
+import Image from "next/image";
+import { FaChevronDown, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import styles from "../../styles/navBar.module.css";
 
-export default function FormFranquicia() {
-  const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState("");
+export default function NavBar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isTopBarVisible, setIsTopBarVisible] = useState(true);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
+  /* Scroll */
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+      setIsTopBarVisible(window.scrollY <= 100);
+      document.body.style.paddingTop = window.scrollY > 100 ? "80px" : "120px";
+    };
 
-    try {
-      const form = e.currentTarget;
+    window.addEventListener("scroll", onScroll);
+    onScroll();
 
-      const getInputValue = (name: string): string => {
-        const el = form.querySelector<HTMLInputElement | HTMLTextAreaElement>(
-          `[name="${name}"]`
-        );
-        return el?.value || "";
-      };
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-      const getCheckboxValues = (name: string): string => {
-        const nodes = form.querySelectorAll<HTMLInputElement>(
-          `input[name="${name}[]"]:checked`
-        );
-        return Array.from(nodes)
-          .map((input) => input.value)
-          .join(", ");
-      };
+  /* Lock scroll mobile */
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
 
-      const nombre = getInputValue("nombre");
-      const edad = getInputValue("edad");
-      const telefono = getInputValue("telefono");
-      const email = getInputValue("email");
-      const ciudad = getInputValue("ciudad");
-      const vive = getCheckboxValues("vive");
-      const motivacion = getCheckboxValues("motivacion");
-      const motivacion_otro = getInputValue("motivacion_otro");
-      const relacion = getCheckboxValues("relacion");
-      const demanda = getInputValue("demanda");
-      const tiempo = getCheckboxValues("tiempo");
-      const experiencia = getCheckboxValues("experiencia");
-      const inversion = getCheckboxValues("inversion");
-      const avanzar = getCheckboxValues("avanzar");
-      const motivacion_final = getInputValue("motivacion_final");
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+    setIsDropdownOpen(false);
+  };
 
-      const texto = encodeURIComponent(
-        `Formulario Interés Puni
-Nombre: ${nombre}
-Edad: ${edad}
-Teléfono: ${telefono}
-Email: ${email}
-Ciudad: ${ciudad}
-Vive actualmente: ${vive}
-Motivación: ${motivacion}${motivacion_otro ? " / " + motivacion_otro : ""}
-Relación con comercios/repartidores: ${relacion}
-Demanda local: ${demanda}
-Tiempo disponible: ${tiempo}
-Experiencia liderando: ${experiencia}
-Inversión disponible: ${inversion}
-Interés en avanzar: ${avanzar}
-Motivo final: ${motivacion_final}`
-      );
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
 
-      window.open(`https://wa.me/5493515174441?text=${texto}`, "_blank");
-
-      setSent(true);
-      setLoading(false);
-      form.reset();
-    } catch (err) {
-      console.error(err);
-      setError("Hubo un error, intenta nuevamente.");
-      setLoading(false);
-    }
+  const closeAllMenus = () => {
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
   };
 
   return (
-    <section className={styles.section}>
-      <h2 className={styles.title}>
-        Quiero abrir Puni en mi ciudad
-      </h2>
+    <>
+      {/* TOPBAR */}
+      <div
+        className={`${styles.topbar} ${
+          isTopBarVisible ? styles.visible : styles.hidden
+        }`}
+      >
+        <div className={styles.topbar__container}>
+          <div className={styles.topbar__socials}>
+            <a
+              href="https://www.instagram.com/puni.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.topbar__link}
+            >
+              <FaInstagram />
+            </a>
 
-      <form className={styles.form} onSubmit={handleSubmit}>
-        {/* DATOS PERSONALES */}
-        <h3 className={styles.subtitle}>Datos personales</h3>
-        <input
-          name="nombre"
-          className={styles.input}
-          placeholder="Nombre completo *"
-          required
-        />
-        <input
-          name="edad"
-          className={styles.input}
-          type="number"
-          min="18"
-          placeholder="Edad *"
-          required
-        />
-        <input
-          name="telefono"
-          className={styles.input}
-          placeholder="Teléfono (WhatsApp) *"
-          required
-        />
-        <input
-          name="email"
-          className={styles.input}
-          type="email"
-          placeholder="Correo electrónico *"
-          required
-        />
+            <a
+              href="https://wa.me/5493515174441"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.topbar__link}
+            >
+              <FaWhatsapp />
+            </a>
+          </div>
 
-        {/* UBICACIÓN */}
-        <h3 className={styles.subtitle}>Ubicación</h3>
-        <input
-          name="ciudad"
-          className={styles.input}
-          placeholder="Ciudad y provincia *"
-          required
-        />
+          <Link href="/forms/colaborar" className={styles.topbar__cta}>
+            Sumate a Puni
+          </Link>
+        </div>
+      </div>
 
-        <div className={styles.checkboxGroup}>
-          <p>¿Vivís en esta ciudad actualmente?</p>
-          <label>
-            <input type="checkbox" name="vive[]" value="Sí" /> Sí
-          </label>
-          <label>
-            <input type="checkbox" name="vive[]" value="No" /> No
-          </label>
+      {/* NAVBAR */}
+      <header
+        className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${
+          !isTopBarVisible ? styles.topbarHidden : ""
+        }`}
+      >
+        <div className={styles.navbar__container}>
+          {/* LOGO */}
+          <div className={styles.navbar__brand}>
+            <Link href="/" onClick={closeAllMenus}>
+              <Image
+                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765407558/Screenshot_2025-12-10_160553-removebg-preview_kyaua9.png"
+                alt="Puni"
+                width={140}
+                height={40}
+                priority
+                className={styles.navbar__logo}
+              />
+            </Link>
+          </div>
+
+          {/* TOGGLE MOBILE */}
+          <button
+            className={`${styles.navbar__mobile_toggle} ${
+              isMobileMenuOpen ? styles.active : ""
+            }`}
+            onClick={toggleMobileMenu}
+            aria-label="Abrir menú"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span className={styles.navbar__mobile_line} />
+            <span className={styles.navbar__mobile_line} />
+            <span className={styles.navbar__mobile_line} />
+          </button>
+
+          {/* NAV DESKTOP */}
+          <nav className={styles.navbar__nav}>
+            <ul className={styles.navbar__menu}>
+              <li>
+                <Link href="/" className={styles.navbar__link}>
+                  Inicio
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/queEsPuni" className={styles.navbar__link}>
+                  ¿Qué es Puni?
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/comoFunciona" className={styles.navbar__link}>
+                  ¿Cómo funciona?
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/porQueElegirnos" className={styles.navbar__link}>
+                  Por qué elegirnos
+                </Link>
+              </li>
+
+              {/* DROPDOWN DESKTOP */}
+              <li
+                className={`${styles.navbar__item} ${styles["navbar__item--has-dropdown"]}`}
+              >
+                <button
+                  className={`${styles.navbar__link} ${styles.navbar__dropdown_trigger}`}
+                  onClick={toggleDropdown}
+                  aria-expanded={isDropdownOpen}
+                >
+                  Registros
+                  <FaChevronDown
+                    className={`${styles.navbar__dropdown_icon} ${
+                      isDropdownOpen ? styles.open : ""
+                    }`}
+                  />
+                </button>
+
+                {isDropdownOpen && (
+                  <ul className={styles.navbar__dropdown}>
+                    <li>
+                      <Link href="/forms/repartidores" onClick={closeAllMenus}>
+                        Quiero ser repartidor
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/forms/envios" onClick={closeAllMenus}>
+                        Quiero envíos
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/forms/colaborar" onClick={closeAllMenus}>
+                        Quiero colaborar con Puni
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
+
+              <li>
+                <Link href="/contacto" className={styles.navbar__link}>
+                  Contacto
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* OVERLAY */}
+          {isMobileMenuOpen && (
+            <div
+              className={styles.navbar__mobile_overlay}
+              onClick={closeAllMenus}
+            />
+          )}
+
+          {/* MENU MOBILE */}
+          {isMobileMenuOpen && (
+            <div className={styles.navbar__mobile_menu}>
+              <ul className={styles.navbar__mobile_list}>
+                <li>
+                  <Link href="/" onClick={closeAllMenus}>
+                    Inicio
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/queEsPuni" onClick={closeAllMenus}>
+                    ¿Qué es Puni?
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/comoFunciona" onClick={closeAllMenus}>
+                    ¿Cómo funciona?
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/porQueElegirnos" onClick={closeAllMenus}>
+                    Por qué elegirnos
+                  </Link>
+                </li>
+
+                <li>
+                  <button onClick={toggleDropdown}>
+                    Registros <FaChevronDown />
+                  </button>
+
+                  {isDropdownOpen && (
+                    <ul className={styles.navbar__mobile_dropdown}>
+                      <li>
+                        <Link
+                          href="/forms/repartidores"
+                          onClick={closeAllMenus}
+                        >
+                          Quiero ser repartidor
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/forms/envios" onClick={closeAllMenus}>
+                          Quiero envíos
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/forms/colaborar" onClick={closeAllMenus}>
+                          Quiero colaborar con Puni
+                        </Link>
+                      </li>
+                    </ul>
+                  )}
+                </li>
+
+                <li>
+                  <Link href="/contacto" onClick={closeAllMenus}>
+                    Contacto
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
 
-        {/* MOTIVACIÓN */}
-        <h3 className={styles.subtitle}>Motivación</h3>
-        <div className={styles.checkboxGroup}>
-          <label>
-            <input
-              type="checkbox"
-              name="motivacion[]"
-              value="Quiero emprender con un modelo probado"
-            />{" "}
-            Quiero emprender con un modelo probado
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="motivacion[]"
-              value="Me interesa la logística y tecnología"
-            />{" "}
-            Me interesa la logística y tecnología
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="motivacion[]"
-              value="Veo una oportunidad clara en mi ciudad"
-            />{" "}
-            Veo una oportunidad clara en mi ciudad
-          </label>
-          <label>
-            <input type="checkbox" name="motivacion[]" value="Otra" /> Otra
-          </label>
+        {/* GRADIENT STRIP */}
+        <div
+          className={`${styles.gradientStrip} ${
+            isScrolled ? styles.scrolled : ""
+          }`}
+        >
+          <div className={styles.gradientStrip__segment}></div>
         </div>
-        <textarea
-          name="motivacion_otro"
-          className={styles.textarea}
-          placeholder="Otra motivación (opcional)"
-        />
-
-        {/* CONOCIMIENTO DEL MERCADO */}
-        <h3 className={styles.subtitle}>Conocimiento del mercado local</h3>
-        <div className={styles.checkboxGroup}>
-          <p>¿Tenés relación con comercios o repartidores en tu ciudad?</p>
-          <label>
-            <input type="checkbox" name="relacion[]" value="Sí" /> Sí
-          </label>
-          <label>
-            <input type="checkbox" name="relacion[]" value="No" /> No
-          </label>
-        </div>
-        <textarea
-          name="demanda"
-          className={styles.textarea}
-          placeholder="¿Cómo describirías la demanda de delivery en tu ciudad?"
-        />
-
-        {/* CAPACIDAD OPERATIVA */}
-        <h3 className={styles.subtitle}>Capacidad operativa</h3>
-        <div className={styles.checkboxGroup}>
-          <p>¿Tenés tiempo disponible para gestionar la operación local?</p>
-          <label>
-            <input type="checkbox" name="tiempo[]" value="Sí" /> Sí
-          </label>
-          <label>
-            <input type="checkbox" name="tiempo[]" value="No" /> No
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="tiempo[]"
-              value="Depende del horario"
-            />{" "}
-            Depende del horario
-          </label>
-        </div>
-        <div className={styles.checkboxGroup}>
-          <p>¿Tenés experiencia liderando equipos o gestionando proyectos?</p>
-          <label>
-            <input type="checkbox" name="experiencia[]" value="Sí" /> Sí
-          </label>
-          <label>
-            <input type="checkbox" name="experiencia[]" value="No" /> No
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="experiencia[]"
-              value="Algo de experiencia"
-            />{" "}
-            Algo de experiencia
-          </label>
-        </div>
-
-        {/* CAPACIDAD DE INVERSIÓN */}
-        <h3 className={styles.subtitle}>Capacidad de inversión</h3>
-        <div className={styles.checkboxGroup}>
-          <p>
-            ¿Podrías invertir en abrir la unidad?
-          </p>
-          <label>
-            <input type="checkbox" name="inversion[]" value="Sí" /> Sí
-          </label>
-          <label>
-            <input type="checkbox" name="inversion[]" value="No" /> No
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="inversion[]"
-              value="Necesitaría financiación"
-            />{" "}
-            Necesitaría financiación
-          </label>
-        </div>
-
-        {/* INTERÉS EN AVANZAR */}
-        <h3 className={styles.subtitle}>Interés en avanzar</h3>
-        <div className={styles.checkboxGroup}>
-          <label>
-            <input
-              type="checkbox"
-              name="avanzar[]"
-              value="Estoy listo para avanzar ya"
-            />{" "}
-            Estoy listo para avanzar ya
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="avanzar[]"
-              value="Quiero conversar y conocer más"
-            />{" "}
-            Quiero conversar y conocer más
-          </label>
-        </div>
-
-        {/* PREGUNTA FINAL */}
-        <h3 className={styles.subtitle}>
-          ¿Qué te motiva a traer Puni a tu ciudad?
-        </h3>
-        <input
-          type="text"
-          name="motivacion_final"
-          className={styles.input}
-          placeholder="Motivo final"
-        />
-
-        {/* BOTÓN */}
-        <button className={styles.button} disabled={loading}>
-          {loading ? "Enviando..." : "Enviar formulario vía WhatsApp"}
-        </button>
-
-        {sent && (
-          <p className={styles.success}>Formulario enviado correctamente ✔</p>
-        )}
-        {error && <p className={styles.error}>{error}</p>}
-      </form>
-    </section>
+      </header>
+    </>
   );
 }

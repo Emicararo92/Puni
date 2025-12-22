@@ -31,8 +31,8 @@ export default function FundadoresSection() {
               <Image
                 src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765408112/WhatsApp_Image_2025-12-10_at_19.39.19-removebg-preview_rgcsc5.png"
                 alt="Matias Millicay"
-                width={350}
-                height={350}
+                width={250}
+                height={250}
                 className={styles.image}
               />
             </div>

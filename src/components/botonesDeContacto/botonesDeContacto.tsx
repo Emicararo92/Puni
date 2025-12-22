@@ -20,7 +20,7 @@ export default function BotonesDeContacto() {
           {/* Contenedor para la imagen que sobresale */}
           <div className={styles.imageWrapper}>
             <Image
-              src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765407559/Screenshot_2025-12-10_160625-removebg-preview_ffeegn.png"
+              src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1766426034/WhatsApp_Image_2025-12-17_at_00.23.07-removebg-preview_xndxog.png"
               alt="Cadete Puni listo para entregar"
               width={400}
               height={400}

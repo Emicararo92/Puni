@@ -1,4 +1,4 @@
-/* fundadores.module.css - VERSIÓN CORREGIDA COMPLETA */
+/* fundadores.module.css - VERSIÓN CORREGIDA (RESPETANDO DIMENSIONES ORIGINALES) */
 
 .section {
   --color-primary: rgba(242, 180, 204, 0.305);
@@ -174,28 +174,28 @@
   color: rgba(30, 55, 100, 1);
 }
 
-/* Columna de imagen - REVISADO */
+/* Columna de imagen - AJUSTADA */
 .imageCol {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 400px;
+  height: 400px; /* Altura fija para contener ambas imágenes */
 }
 
-/* CÍRCULO DE FONDO AZUL - CORREGIDO */
+/* CÍRCULO DE FONDO AZUL - AJUSTADO PROPORCIONALMENTE */
 .imageBackground {
   position: absolute;
-  width: 380px;
-  height: 380px;
+  width: 320px; /* Tamaño proporcional para la imagen más grande (350px) */
+  height: 320px;
   border-radius: 50%;
   background: #1e3764; /* AZUL PRIMARIO DARK */
   z-index: 0;
   opacity: 0.9;
   animation: pulse 6s ease-in-out infinite;
-  box-shadow: 0 20px 60px rgba(30, 55, 100, 0.3),
-    inset 0 10px 30px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 40px rgba(30, 55, 100, 0.25),
+    inset 0 8px 20px rgba(255, 255, 255, 0.1);
 }
 
 @keyframes pulse {
@@ -207,36 +207,49 @@
   50% {
     transform: scale(1.05);
     opacity: 1;
-    box-shadow: 0 25px 80px rgba(30, 55, 100, 0.4),
-      inset 0 15px 40px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(30, 55, 100, 0.35),
+      inset 0 10px 25px rgba(255, 255, 255, 0.15);
   }
 }
 
-/* IMAGEN - REMOVER FONDO BLANCO */
+/* CONTENEDOR DE IMAGEN - RESPETA DIMENSIONES ORIGINALES */
 .imageWrapper {
   position: relative;
   z-index: 1;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: auto;
+  height: auto;
 }
 
+/* IMAGEN - RESPETA DIMENSIONES ORIGINALES DEL TSX */
 .image {
   position: relative;
   z-index: 2;
-  border-radius: 20px;
-  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.25));
+  border-radius: 12px;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  max-width: 350px;
-  max-height: 350px;
+  /* Se respetan las dimensiones originales del TSX: 250x250 y 350x350 */
   object-fit: contain;
+  background: transparent;
+}
+
+/* Ajuste para la imagen más grande (350x350) */
+.image[width="350"] {
+  width: 350px;
+  height: 350px;
+}
+
+/* Ajuste para la imagen más pequeña (250x250) */
+.image[width="250"] {
+  width: 250px;
+  height: 250px;
 }
 
 .image:hover {
-  transform: translateY(-10px) scale(1.05);
-  filter: drop-shadow(0 25px 60px rgba(30, 55, 100, 0.4));
+  transform: translateY(-8px) scale(1.04);
+  filter: drop-shadow(0 20px 40px rgba(30, 55, 100, 0.3));
 }
 
 /* Elementos decorativos adicionales */
@@ -309,8 +322,8 @@
   }
 
   .imageBackground {
-    width: 320px;
-    height: 320px;
+    width: 280px;
+    height: 280px;
   }
 }
 
@@ -340,8 +353,19 @@
   }
 
   .imageBackground {
-    width: 280px;
-    height: 280px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Ajustes responsive para imágenes */
+  .image[width="350"] {
+    width: 300px;
+    height: 300px;
+  }
+
+  .image[width="250"] {
+    width: 220px;
+    height: 220px;
   }
 }
 
@@ -377,8 +401,19 @@
   }
 
   .imageBackground {
-    width: 240px;
-    height: 240px;
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Ajustes responsive para imágenes */
+  .image[width="350"] {
+    width: 250px;
+    height: 250px;
+  }
+
+  .image[width="250"] {
+    width: 180px;
+    height: 180px;
   }
 }
 
