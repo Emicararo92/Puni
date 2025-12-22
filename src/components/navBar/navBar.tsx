@@ -134,19 +134,19 @@ export default function NavBar() {
               </li>
 
               <li>
-                <Link href="/que-es-puni" className={styles.navbar__link}>
+                <Link href="/queEsPuni" className={styles.navbar__link}>
                   ¿Qué es Puni?
                 </Link>
               </li>
 
               <li>
-                <Link href="/como-funciona" className={styles.navbar__link}>
+                <Link href="/comoFunciona" className={styles.navbar__link}>
                   ¿Cómo funciona?
                 </Link>
               </li>
 
               <li>
-                <Link href="/porque-elegirnos" className={styles.navbar__link}>
+                <Link href="/porQueElegirnos" className={styles.navbar__link}>
                   Por qué elegirnos
                 </Link>
               </li>

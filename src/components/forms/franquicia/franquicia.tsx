@@ -81,7 +81,7 @@ Motivo final: ${motivacion_final}`
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>
-        Formulario Interesados en abrir Puni en su ciudad
+        Quiero abrir Puni en mi ciudad
       </h2>
 
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -229,7 +229,7 @@ Motivo final: ${motivacion_final}`
         <h3 className={styles.subtitle}>Capacidad de inversión</h3>
         <div className={styles.checkboxGroup}>
           <p>
-            ¿Podrías invertir abrir la unidad?
+            ¿Podrías invertir en abrir la unidad?
           </p>
           <label>
             <input type="checkbox" name="inversion[]" value="Sí" /> Sí
