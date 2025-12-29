@@ -5,6 +5,7 @@ import "./globals.css";
 import NavBar from "../components/navBar/navBar";
 import Footer from "../components/footer/footer";
 import WhatsAppFloatingButton from "../utils/wapp/wapp";
+import BotAssistant from "../utils/bot/bot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,8 +35,14 @@ export default function RootLayout({
         {/* Navbar global */}
         <NavBar />
 
+        {/* Bot Puni (Packy) */}
+        <BotAssistant />
+
+        {/* WhatsApp directo */}
         <WhatsAppFloatingButton />
+
         <main className="app-main">{children}</main>
+
         <Footer />
       </body>
     </html>

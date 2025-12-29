@@ -25,14 +25,12 @@ export default function FundadoresSection() {
             </p>
           </div>
           <div className={styles.imageCol}>
-            {/* CÍRCULO AZUL DE FONDO */}
-            <div className={styles.imageBackground}></div>
             <div className={styles.imageWrapper}>
               <Image
-                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765408112/WhatsApp_Image_2025-12-10_at_19.39.19-removebg-preview_rgcsc5.png"
+                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767033005/Subt%C3%ADtulo_6_kdoo60.png"
                 alt="Matias Millicay"
-                width={250}
-                height={250}
+                width={400}
+                height={400}
                 className={styles.image}
               />
             </div>
@@ -57,14 +55,12 @@ export default function FundadoresSection() {
             </p>
           </div>
           <div className={styles.imageCol}>
-            {/* CÍRCULO AZUL DE FONDO */}
-            <div className={styles.imageBackground}></div>
             <div className={styles.imageWrapper}>
               <Image
-                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765408111/Debo-removebg-preview_txptdr.png"
+                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767033005/Subt%C3%ADtulo_7_egqvlv.png"
                 alt="Débora Ludueña"
-                width={350}
-                height={350}
+                width={400}
+                height={400}
                 className={styles.image}
               />
             </div>
