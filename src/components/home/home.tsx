@@ -5,6 +5,7 @@ import Hero from "./bannerHero/bannerHero";
 import NosotrosSection from "../nosotros/nosotros";
 import FundadoresSection from "../creadores/creadores";
 import BeneficiosSection from "../beneficios/beneficios";
+import AppDownload from "../appDescarga/appDescarga";
 
 function Home() {
   return (
@@ -12,12 +13,13 @@ function Home() {
       <Hero />
       <BotonesDeContacto />
       <SectionDivider />
+      <AppDownload />
+      <SectionDivider />
       <BeneficiosSection />
       <SectionDivider />
       <PorQueElegirnosYPartners />
       <SectionDivider />
       <NosotrosSection />
-      <SectionDivider />
       <FundadoresSection />
     </>
   );
