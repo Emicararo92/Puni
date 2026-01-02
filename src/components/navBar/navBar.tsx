@@ -92,15 +92,21 @@ export default function NavBar() {
         <div className={styles.navbar__container}>
           {/* LOGO */}
           <div className={styles.navbar__brand}>
-            <Link href="/" onClick={closeAllMenus}>
-              <Image
-                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765407558/Screenshot_2025-12-10_160553-removebg-preview_kyaua9.png"
-                alt="Puni"
-                width={140}
-                height={40}
-                priority
-                className={styles.navbar__logo}
-              />
+            <Link
+              href="/"
+              onClick={closeAllMenus}
+              className={styles.navbar__logoLink}
+            >
+              <div className={styles.navbar__logoCircle}>
+                <Image
+                  src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765407558/Screenshot_2025-12-10_160544-removebg-preview_dogmxk.png"
+                  alt="Puni"
+                  width={140}
+                  height={40}
+                  priority
+                  className={styles.navbar__logoImage}
+                />
+              </div>
             </Link>
           </div>
 
@@ -188,6 +194,18 @@ export default function NavBar() {
                   Contacto
                 </Link>
               </li>
+
+              {/* BOTÓN INICIAR SESIÓN - DESKTOP */}
+              <li>
+                <a
+                  href="https://puniya.ar/pLogin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.navbar__login}
+                >
+                  Iniciar sesión
+                </a>
+              </li>
             </ul>
           </nav>
 
@@ -260,6 +278,19 @@ export default function NavBar() {
                   <Link href="/contacto" onClick={closeAllMenus}>
                     Contacto
                   </Link>
+                </li>
+
+                {/* BOTÓN INICIAR SESIÓN - MOBILE */}
+                <li>
+                  <a
+                    href="https://puniya.ar/pLogin"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.navbar__login_mobile}
+                    onClick={closeAllMenus}
+                  >
+                    Iniciar sesión
+                  </a>
                 </li>
               </ul>
             </div>

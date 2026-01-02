@@ -1,4 +1,4 @@
-/* navBar.module.css - VERSIÓN FINAL COMPLETA */
+/* navBar.module.css - VERSIÓN COMPLETA CON BOTÓN INICIAR SESIÓN */
 
 .navbar {
   --color-primary: rgba(247, 181, 205, 0.15);
@@ -10,6 +10,7 @@
   --color-black: #1a1a1a;
   --color-gray-100: rgba(249, 250, 251, 0.8);
   --color-gray-200: rgba(229, 231, 235, 0.6);
+  --color-repartidor: #4285f4;
 
   /* Estado inicial: gradiente rosa a blanco MUY SUTIL */
   background: linear-gradient(135deg, #f7b5cd, rgba(255, 255, 255, 0.911) 100%);
@@ -70,18 +71,42 @@
 /* LOGO - Delicado */
 .navbar__brand {
   z-index: 1001;
+  margin-right: auto; /* Empuja todo lo demás a la derecha */
 }
 
+/* CONTENEDOR CIRCULAR */
+.navbar__logoCircle {
+  width: 52px;
+  height: 52px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(30, 55, 100, 0.15);
+  margin-right: 4rem;
+}
+
+/* IMAGEN */
+.navbar__logoImage {
+  width: 32px;
+  height: auto;
+  object-fit: contain;
+}
+  
 .navbar__logo {
   display: flex;
   align-items: center;
-  text-decoration: none;
-  margin: 0 2rem 0 1rem; /* ← ACÁ estaba el error */
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  padding: 6px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 60%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  box-shadow: 0 4px 12px rgba(30, 55, 100, 0.15),
+    0 0 0 6px rgba(255, 255, 255, 0.4);
 }
 
 .navbar__logo:hover {
@@ -142,6 +167,8 @@
 .navbar__nav {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 .navbar__menu {
@@ -149,7 +176,8 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2.2rem;
+  gap: 1.5rem;
+  align-items: center;
 }
 
 .navbar__item {
@@ -175,6 +203,7 @@
   border-radius: 8px;
   position: relative;
   opacity: 0.9;
+  white-space: nowrap;
 }
 
 .navbar__link:hover {
@@ -195,6 +224,7 @@
   color: #ffffff !important;
   opacity: 1;
   transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Indicador sutil en hover */
@@ -221,6 +251,57 @@
     rgba(255, 255, 255, 0.8),
     transparent
   ); /* BLANCO */
+}
+
+/* BOTÓN INICIAR SESIÓN - DESKTOP */
+.navbar__login {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white !important;
+  text-decoration: none;
+  padding: 0.65rem 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #152a4af2;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.2);
+  white-space: nowrap;
+  min-width: 120px;
+  text-align: center;
+  margin-left: 0.5rem;
+}
+
+.navbar__login:hover {
+  background: linear-gradient(135deg, #152a4af2 0%, #1a5fd9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(66, 133, 244, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estado scrolled - botón cambia a gradiente rosa */
+.navbar.scrolled .navbar__login {
+  background: linear-gradient(
+    135deg,
+    var(--color-secondary) 0%,
+    rgba(247, 181, 205, 0.8) 100%
+  );
+  color: var(--color-primary-dark) !important;
+  box-shadow: 0 4px 12px rgba(247, 181, 205, 0.2);
+}
+
+.navbar.scrolled .navbar__login:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(247, 181, 205, 0.9) 0%,
+    rgba(247, 181, 205, 1) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(247, 181, 205, 0.3);
+  border-color: rgba(30, 55, 100, 0.2);
 }
 
 /* DROPDOWN DESKTOP - Delicado */
@@ -395,6 +476,33 @@
   background: rgba(247, 181, 205, 0.08);
   opacity: 1;
   padding-left: 1.5rem;
+}
+
+/* BOTÓN INICIAR SESIÓN - MOBILE */
+.navbar__login_mobile {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-repartidor) 0%, #3367d6 100%);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.2);
+  width: calc(100% - 2rem);
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.navbar__login_mobile:hover {
+  background: linear-gradient(135deg, #3367d6 0%, #1a5fd9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(66, 133, 244, 0.3);
 }
 
 /* DROPDOWN MOBILE */
@@ -646,6 +754,7 @@ body {
   }
 }
 
+/* GRADIENT STRIP */
 .gradientStrip {
   position: absolute;
   bottom: 0;
@@ -698,5 +807,129 @@ body {
   .gradientStrip {
     height: 1.5px;
     opacity: 0.6;
+  }
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .navbar__link {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .navbar__login {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    min-width: 110px;
+  }
+
+  .navbar__menu {
+    gap: 1rem;
+  }
+}
+
+/* Para pantallas muy grandes */
+@media (min-width: 1400px) {
+  .navbar__container {
+    padding: 0 3rem;
+  }
+
+  .navbar__menu {
+    gap: 2rem;
+  }
+}
+
+/* Agrega esto al final de tu navBar.module.css */
+
+/* LOGO LINK */
+.navbar__logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  height: 100%;
+}
+
+/* LOGO CONTAINER */
+.navbar__logoContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* LOGO IMAGE */
+.navbar__logoImage {
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  height: auto;
+  max-height: 40px;
+  width: auto;
+}
+
+.navbar__logoImage:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Estado scrolled - logo con brillo diferente */
+.navbar.scrolled .navbar__logoImage {
+  filter: brightness(1.2) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.1));
+}
+
+/* LOGO FALLBACK (solo se muestra si la imagen no carga) */
+.navbar__logoFallback {
+  display: none; /* Oculto por defecto */
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3764, #2a4a7a);
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  min-width: 120px;
+  height: 40px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(30, 55, 100, 0.2);
+}
+
+.navbar__logoFallback:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 55, 100, 0.3);
+}
+
+.navbar__logoText {
+  background: linear-gradient(135deg, #ffffff, #f7b5cd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Estado scrolled - logo fallback cambia a rosa */
+.navbar.scrolled .navbar__logoFallback {
+  background: linear-gradient(135deg, #f7b5cd, rgba(247, 181, 205, 0.9));
+}
+
+.navbar.scrolled .navbar__logoText {
+  background: linear-gradient(135deg, #1e3764, #2a4a7a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Para mobile */
+@media (max-width: 768px) {
+  .navbar__logoImage {
+    max-height: 35px;
+  }
+
+  .navbar__logoFallback {
+    min-width: 100px;
+    height: 35px;
+    font-size: 1.3rem;
+    padding: 0.4rem 0.8rem;
   }
 }
