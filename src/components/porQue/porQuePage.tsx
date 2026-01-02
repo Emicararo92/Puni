@@ -88,7 +88,7 @@ export default function PorqueElegirPuniSection() {
               <li>Más eficiencia real</li>
             </ul>
 
-            <Link href="/como-funciona" className={styles.ctaSecondary}>
+            <Link href="/comoFunciona" className={styles.ctaSecondary}>
               Ver cómo funciona
             </Link>
           </div>
@@ -159,7 +159,7 @@ export default function PorqueElegirPuniSection() {
             trabajar mejor, sin regalar su esfuerzo a plataformas externas.
           </p>
 
-          <Link href="/contacto" className={styles.ctaPrimary}>
+          <Link href="/forms/contacto" className={styles.ctaPrimary}>
             Quiero hablar con Puni
           </Link>
         </footer>

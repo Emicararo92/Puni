@@ -114,7 +114,7 @@ export default function ComoFuncionaPuniSection() {
             </p>
 
             <div className={styles.cta}>
-              <Link href="/contacto" className={styles.buttonPrimary}>
+              <Link href="/forms/contacto" className={styles.buttonPrimary}>
                 Quiero saber más
               </Link>
             </div>
@@ -144,7 +144,7 @@ export default function ComoFuncionaPuniSection() {
           </p>
 
           <div className={styles.ctaCenter}>
-            <Link href="/que-es-puni" className={styles.buttonSecondary}>
+            <Link href="/queEsPuni" className={styles.buttonSecondary}>
               Volver a ¿Qué es Puni?
             </Link>
           </div>

@@ -125,7 +125,7 @@ export default function QueEsPuniSection() {
           </ul>
 
           <div className={styles.ctaCenter}>
-            <Link href="/contacto" className={styles.buttonPrimary}>
+            <Link href="/forms/contacto" className={styles.buttonPrimary}>
               Quiero conocer Puni
             </Link>
           </div>
