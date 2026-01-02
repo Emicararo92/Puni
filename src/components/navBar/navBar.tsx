@@ -68,7 +68,7 @@ export default function NavBar() {
             </a>
 
             <a
-              href="https://wa.me/5493515174441"
+              href="https://wa.me/3548635151"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.topbar__link}
@@ -190,7 +190,7 @@ export default function NavBar() {
               </li>
 
               <li>
-                <Link href="/contacto" className={styles.navbar__link}>
+                <Link href="/forms/contacto" className={styles.navbar__link}>
                   Contacto
                 </Link>
               </li>
@@ -275,7 +275,7 @@ export default function NavBar() {
                 </li>
 
                 <li>
-                  <Link href="/contacto" onClick={closeAllMenus}>
+                  <Link href="/forms/contacto" onClick={closeAllMenus}>
                     Contacto
                   </Link>
                 </li>

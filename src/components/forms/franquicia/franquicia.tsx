@@ -66,7 +66,7 @@ Interés en avanzar: ${avanzar}
 Motivo final: ${motivacion_final}`
       );
 
-      window.open(`https://wa.me/5493515174441?text=${texto}`, "_blank");
+      window.open(`https://wa.me/3548635151?text=${texto}`, "_blank");
 
       setSent(true);
       setLoading(false);
