@@ -22,6 +22,43 @@ export default function AppDownload() {
     setActiveSlide(index);
   };
 
+  const infoSlides = [
+    {
+      icon: "📱",
+      text: (
+        <>
+          <strong>App móvil:</strong> Ideal para repartidores en movimiento
+        </>
+      ),
+    },
+    {
+      icon: "💻",
+      text: (
+        <>
+          <strong>Web:</strong> Perfecta para comercios en escritorio
+        </>
+      ),
+    },
+    {
+      icon: "🔄",
+      text: (
+        <>
+          <strong>Sincronizado:</strong> Usá ambos, tu información se mantiene
+        </>
+      ),
+    },
+  ];
+
+  const [activeInfo, setActiveInfo] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveInfo((prev) => (prev + 1) % infoSlides.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className={styles.appDownload}>
       <div className={styles.appDownload__container}>
@@ -182,29 +219,6 @@ export default function AppDownload() {
                   </span>
                 </div>
               </a>
-            </div>
-
-            <div className={styles.appDownload__info}>
-              <div className={styles.appDownload__infoItem}>
-                <span className={styles.appDownload__infoIcon}>📱</span>
-                <span className={styles.appDownload__infoText}>
-                  <strong>App móvil:</strong> Ideal para repartidores en
-                  movimiento
-                </span>
-              </div>
-              <div className={styles.appDownload__infoItem}>
-                <span className={styles.appDownload__infoIcon}>💻</span>
-                <span className={styles.appDownload__infoText}>
-                  <strong>Web:</strong> Perfecta para comercios en escritorio
-                </span>
-              </div>
-              <div className={styles.appDownload__infoItem}>
-                <span className={styles.appDownload__infoIcon}>🔄</span>
-                <span className={styles.appDownload__infoText}>
-                  <strong>Sincronizado:</strong> Usá ambos, tu información se
-                  mantiene
-                </span>
-              </div>
             </div>
           </div>
         </div>
