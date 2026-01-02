@@ -59,7 +59,7 @@ export default function NavBar() {
         <div className={styles.topbar__container}>
           <div className={styles.topbar__socials}>
             <a
-              href="https://www.instagram.com/puni.app"
+              href="https://www.instagram.com/punidelivery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
               className={styles.topbar__link}

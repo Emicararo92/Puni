@@ -38,7 +38,7 @@ export default function BotonesDeContacto() {
           </p>
 
           <div className={styles.buttonsGrid}>
-            <Link href="/repartidores" className={styles.button}>
+            <Link href="/forms/repartidores" className={styles.button}>
               <div className={styles.buttonIcon}>
                 <FaMotorcycle />
               </div>
@@ -51,7 +51,7 @@ export default function BotonesDeContacto() {
               <div className={styles.buttonArrow}>→</div>
             </Link>
 
-            <Link href="/empresas" className={styles.button}>
+            <Link href="/forms/envios" className={styles.button}>
               <div className={styles.buttonIcon}>
                 <FaBoxOpen />
               </div>
@@ -64,7 +64,7 @@ export default function BotonesDeContacto() {
               <div className={styles.buttonArrow}>→</div>
             </Link>
 
-            <Link href="/colaborar" className={styles.button}>
+            <Link href="/forms/colaborar" className={styles.button}>
               <div className={styles.buttonIcon}>
                 <FaHandshake />
               </div>
