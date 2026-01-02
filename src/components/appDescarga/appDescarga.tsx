@@ -76,10 +76,12 @@ export default function AppDownload() {
                 <span className={styles.appDownload__featureIcon}>👥</span>
               </div>
               <div className={styles.appDownload__featureContent}>
-                <h3 className={styles.appDownload__featureTitle}>Doble rol</h3>
+                <h3 className={styles.appDownload__featureTitle}>
+                  Rol automático
+                </h3>
                 <p className={styles.appDownload__featureText}>
-                  Una cuenta, dos experiencias. Iniciá sesión como repartidor o
-                  comercio.
+                  La experiencia se adapta según el tipo de usuario con el que
+                  inicies sesión.
                 </p>
               </div>
             </div>
