@@ -26,7 +26,7 @@ export default function BeneficiosSection() {
           <div className={styles.benefitItem}>
             <div className={styles.benefitHeader}>
               <h3 className={styles.benefitTitle}>
-                ❌ El modelo insostenible de las apps tradicionales
+                El modelo insostenible de las apps tradicionales
               </h3>
             </div>
 
@@ -48,7 +48,7 @@ export default function BeneficiosSection() {
           <div className={styles.benefitItem}>
             <div className={styles.benefitHeader}>
               <h3 className={styles.benefitTitle}>
-                ✅ El Modelo Puni: Logística justa, márgenes íntegros
+                El Modelo Puni: Logística justa, márgenes íntegros
               </h3>
             </div>
 
