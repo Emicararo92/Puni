@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa6";
 import styles from "../../styles/footer.module.css";
 
 export default function Footer() {
@@ -59,8 +60,8 @@ export default function Footer() {
         {/* Contacto / redes */}
         <div className={styles.contactCol}>
           <h4 className={styles.title}>Contacto</h4>
-          <p className={styles.text}>matias@puni.ar</p>
-          <p className={styles.text}>354 863 5151</p>
+          <p className={styles.text}>hola@puni.ar</p>
+          <p className={styles.text}>+54 9 3548 63-5151</p>
           <div className={styles.socials}>
             <Link href="#" className={styles.socialLink}>
               <FaInstagram size={20} />
@@ -70,6 +71,9 @@ export default function Footer() {
             </Link>
             <Link href="#" className={styles.socialLink}>
               <FaLinkedinIn size={20} />
+            </Link>
+            <Link href="#" className={styles.socialLink}>
+              <FaTiktok size={20} />
             </Link>
           </div>
         </div>
