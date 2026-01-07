@@ -59,8 +59,8 @@ export default function Footer() {
         {/* Contacto / redes */}
         <div className={styles.contactCol}>
           <h4 className={styles.title}>Contacto</h4>
-          <p className={styles.text}>hola@puni.ar</p>
-          <p className={styles.text}>+54 9 11 1234 5678</p>
+          <p className={styles.text}>matias@puni.ar</p>
+          <p className={styles.text}>354 863 5151</p>
           <div className={styles.socials}>
             <Link href="#" className={styles.socialLink}>
               <FaInstagram size={20} />

@@ -8,14 +8,13 @@ export default function WhatsAppFloatingButton() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const phoneNumber = "5490000000000"; // reemplazar por el real
+  const phoneNumber = "354 863 5151"; 
   const message = "Hola! Me interesa saber más sobre los servicios de Puni.";
 
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message
   )}`;
 
-  /* Mostrar / ocultar según scroll */
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
