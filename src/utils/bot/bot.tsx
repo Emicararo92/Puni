@@ -35,7 +35,7 @@ export default function BotAssistant() {
           {
             id: Date.now(),
             from: "bot",
-            text: "Hola 👋 soy Packy. ¿Como te puedo ayudar?",
+            text: "Hola 👋 soy Uní. ¿Como te puedo ayudar?",
           },
         ]);
 
@@ -173,10 +173,10 @@ export default function BotAssistant() {
         className={styles.botButton}
         onClick={toggleBot}
         aria-expanded={isOpen}
-        aria-label="Abrir chat con Packy"
+        aria-label="Abrir chat con Uní"
       >
         <Image
-          src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767039359/ChatGPT_Image_29_dic_2025_05_15_32_p.m._mnfbhl.png"
+          src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767802526/1_qhqrne.png"
           alt="Chat Packy"
           width={40}
           height={40}

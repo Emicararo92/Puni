@@ -97,7 +97,7 @@ export default function PorQueElegirnosYPartners() {
           {/* Imagen */}
           <div className={styles.imageWrapper}>
             <Image
-              src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765415844/Una_moto_con_un_conductor_con_una_mochila_de_delivery_que_diga_puni.__Color_de_la_mochila__Rosa__Color_de_la_letra__Azul_1_vculot.jpg"
+              src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1766077514/ChatGPT_Image_18_dic_2025_02_03_56_p.m._b38dnm.png"
               alt="Logística Puni - Repartidor en moto"
               width={600}
               height={350}

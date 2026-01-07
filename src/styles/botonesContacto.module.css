@@ -64,6 +64,14 @@
   object-fit: contain;
   position: relative;
   z-index: 2;
+  border-radius: 100%;
+  transition: all 0.5s;
+}
+
+.image:hover{
+  transform: scale(1.1);
+  transition: 0.5s all;
+  
 }
 
 /* Contenedor de botones del lado derecho */

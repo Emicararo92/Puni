@@ -12,15 +12,12 @@ export default function BotonesDeContacto() {
         {/* Contenedor de imagen con círculo de fondo */}
         <div className={styles.imageContainer}>
           {/* Círculo de fondo azul con Tailwind */}
-          <div
-            className="absolute w-[350px] h-[350px] rounded-full bg-[#1e3764] z-0 
-                        shadow-[0_20px_60px_rgba(30,55,100,0.3),inset_0_4px_20px_rgba(255,255,255,0.1)]"
-          ></div>
+          
 
           {/* Contenedor para la imagen que sobresale */}
           <div className={styles.imageWrapper}>
             <Image
-              src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1766426034/WhatsApp_Image_2025-12-17_at_00.23.07-removebg-preview_xndxog.png"
+              src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767802965/WhatsApp_Image_2026-01-06_at_13.51.56_1_xnslqb.jpg"
               alt="Cadete Puni listo para entregar"
               width={400}
               height={400}
