@@ -26,14 +26,14 @@ const slides: Slide[] = [
     ctaHref: "/forms/repartidores",
   },
   {
-    type: "image",
+    type: "video",
     src: "https://res.cloudinary.com/dnyfmlnvt/video/upload/v1767984549/WhatsApp_Video_2026-01-07_at_20.34.55_flyoss.mp4",
     title: "¿Necesitás envíos?",
     ctaText: "Más info",
     ctaHref: "/forms/envios",
   },
   {
-    type: "image",
+    type: "video",
     src: "https://res.cloudinary.com/dnyfmlnvt/video/upload/v1767389470/WhatsApp_Video_2025-12-26_at_10.12.27_i1rwdu.mp4",
     title: "¿Querés hablar con nosotros?",
     ctaText: "Contacto",
@@ -47,7 +47,7 @@ export default function HeroCarousel() {
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect="fade"
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         loop
         slidesPerView={1}
         speed={1000}
