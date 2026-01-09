@@ -20,21 +20,21 @@ type Slide = {
 const slides: Slide[] = [
   {
     type: "video",
-    src: "https://res.cloudinary.com/dnyfmlnvt/video/upload/v1767389470/WhatsApp_Video_2025-12-26_at_10.12.27_i1rwdu.mp4",
+    src: "https://res.cloudinary.com/dnyfmlnvt/video/upload/v1767984550/WhatsApp_Video_2026-01-07_at_21.40.58_nxrakg.mp4",
     title: "¿Querés ser repartidor?",
     ctaText: "Registrarme",
     ctaHref: "/forms/repartidores",
   },
   {
     type: "image",
-    src: "https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765410221/Prompt_para_Canva_Banner_de_Quiero_Env%C3%ADos___Crea_un_banner_hero_para_el_sitio_de_Puni_dirigido_a_clientes_que_quieren_hacer_env%C3%ADos._Debe_incluir___Ilustraci%C3%B3n_o_imagen_de_un_paquete_o_paquete_en_movimiento_con_efecto_de_velocidad_f9joo2.jpg",
+    src: "https://res.cloudinary.com/dnyfmlnvt/video/upload/v1767984549/WhatsApp_Video_2026-01-07_at_20.34.55_flyoss.mp4",
     title: "¿Necesitás envíos?",
     ctaText: "Más info",
     ctaHref: "/forms/envios",
   },
   {
     type: "image",
-    src: "https://res.cloudinary.com/dnyfmlnvt/image/upload/v1765410221/Prompt_para_Canva_Banner_Por_qu%C3%A9_elegirnos___Crea_un_banner_hero_para_el_sitio_de_Puni_dirigido_a_mostrar_ventajas_o_motivos_de_elegir_el_servicio._Debe_incluir___Imagen_o_ilustraci%C3%B3n_de_confianza_y_profesionalismo_por_ejemplo__re_q9jh4h.jpg",
+    src: "https://res.cloudinary.com/dnyfmlnvt/video/upload/v1767389470/WhatsApp_Video_2025-12-26_at_10.12.27_i1rwdu.mp4",
     title: "¿Querés hablar con nosotros?",
     ctaText: "Contacto",
     ctaHref: "/forms/contacto",

@@ -53,7 +53,7 @@ export default function PorqueElegirPuniSection() {
           <div className={styles.imageWrapper}>
             <Link href="/forms/envios">
               <Image
-                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1766422100/ChatGPT_Image_22_dic_2025_01_46_59_p.m._zqgqjs.png"
+                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767893189/WhatsApp_Image_2026-01-07_at_23.24.09_si7ggf.jpg"
                 alt="Enviar sin comisiones con Puni"
                 width={520}
                 height={380}
@@ -97,7 +97,7 @@ export default function PorqueElegirPuniSection() {
           <div className={styles.imageWrapper}>
             <Link href="/como-funciona">
               <Image
-                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1766423826/ChatGPT_Image_22_dic_2025_01_57_44_p.m._iivfzk.png"
+                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767893189/WhatsApp_Image_2026-01-07_at_23.22.57_scct8m.jpg"
                 alt="Logística por zonas con Puni"
                 width={520}
                 height={380}
@@ -140,7 +140,7 @@ export default function PorqueElegirPuniSection() {
           <div className={styles.imageWrapper}>
             <Link href="/forms/repartidores">
               <Image
-                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1766424650/ChatGPT_Image_22_dic_2025_02_30_37_p.m._yt4axk.png"
+                src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767893189/WhatsApp_Image_2026-01-07_at_23.22.41_q6lyzs.jpg"
                 alt="Ser repartidor en Puni"
                 width={520}
                 height={380}

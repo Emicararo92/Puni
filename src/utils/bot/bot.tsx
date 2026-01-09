@@ -176,7 +176,7 @@ export default function BotAssistant() {
         aria-label="Abrir chat con Uní"
       >
         <Image
-          src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767802526/1_qhqrne.png"
+          src="https://res.cloudinary.com/dnyfmlnvt/image/upload/v1767893189/STEKERS_PUNI_sve9so.png"
           alt="Chat Packy"
           width={40}
           height={40}
