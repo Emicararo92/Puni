@@ -60,19 +60,43 @@ export default function Footer() {
         {/* Contacto / redes */}
         <div className={styles.contactCol}>
           <h4 className={styles.title}>Contacto</h4>
-          <p className={styles.text}>hola@puni.ar</p>
-          <p className={styles.text}>+54 9 3548 63-5151</p>
+
+          <a href="mailto:matias@puni.ar" className={styles.text}>
+            matias@puni.ar
+          </a>
+
+          <a
+            href="https://wa.me/5493548635151"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.text}
+          >
+            +54 9 3548 63-5151
+          </a>
+
           <div className={styles.socials}>
-            <Link href="#" className={styles.socialLink}>
+            <Link
+              href="https://www.instagram.com/punidelivery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              className={styles.socialLink}
+            >
               <FaInstagram size={20} />
             </Link>
-            <Link href="#" className={styles.socialLink}>
+
+            <Link href="" className={styles.socialLink}>
               <FaFacebookF size={20} />
             </Link>
-            <Link href="#" className={styles.socialLink}>
+
+            <Link
+              href="https://www.linkedin.com/company/puniya/"
+              className={styles.socialLink}
+            >
               <FaLinkedinIn size={20} />
             </Link>
-            <Link href="#" className={styles.socialLink}>
+
+            <Link
+              href="https://vm.tiktok.com/ZMHEV9ucBahTS-oWwKZ/"
+              className={styles.socialLink}
+            >
               <FaTiktok size={20} />
             </Link>
           </div>
