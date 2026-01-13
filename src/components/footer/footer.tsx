@@ -82,7 +82,7 @@ export default function Footer() {
               <FaInstagram size={20} />
             </Link>
 
-            <Link href="" className={styles.socialLink}>
+            <Link href="https://www.facebook.com/share/1HZPHZYdjR/" className={styles.socialLink}>
               <FaFacebookF size={20} />
             </Link>
 
