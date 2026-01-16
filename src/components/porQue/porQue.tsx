@@ -52,6 +52,12 @@ export default function PorQueElegirnosYPartners() {
       width: 140,
       height: 140,
     },
+      {
+      src: "https://res.cloudinary.com/dnyfmlnvt/image/upload/v1768517264/ChatGPT_Image_15_ene_2026_07_47_00_p.m._g6ttp8.png",
+      alt: "Zinnia",
+      width: 220,
+      height: 220,
+    }
   ];
 
   const stats = [
